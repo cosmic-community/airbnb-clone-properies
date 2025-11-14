@@ -175,7 +175,10 @@ export async function createUser(data: {
   try {
     // Changed: Convert date to YYYY-MM-DD format for Cosmic date metafield
     const today = new Date();
-    const formattedDate = today.toISOString().split('T')[0]; // Gets YYYY-MM-DD
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    const formattedDate = `${year}-${month}-${day}`; // Ensures YYYY-MM-DD format
     
     const response = await cosmic.objects.insertOne({
       title: data.name,
@@ -184,7 +187,7 @@ export async function createUser(data: {
         name: data.name,
         email: data.email,
         password_hash: data.password_hash,
-        created_at: formattedDate // Changed: Use YYYY-MM-DD format instead of ISO timestamp
+        created_at: formattedDate // Changed: Use explicit YYYY-MM-DD format
       }
     });
     
