@@ -17,10 +17,10 @@ export default function Header() {
               href="/" 
               className="text-gray-700 hover:text-gray-900 transition-colors"
             >
-              Explore
+              Home
             </Link>
             <Link 
-              href="/#listings" 
+              href="/listings" 
               className="text-gray-700 hover:text-gray-900 transition-colors"
             >
               Listings
