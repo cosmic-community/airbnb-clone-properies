@@ -65,6 +65,30 @@ export interface Review extends CosmicObject {
   };
 }
 
+// User interface for authentication
+export interface User extends CosmicObject {
+  type: 'users';
+  metadata: {
+    name: string;
+    email: string;
+    password_hash: string;
+    profile_photo?: {
+      url: string;
+      imgix_url: string;
+    };
+    bio?: string;
+    phone?: string;
+    created_at?: string;
+  };
+}
+
+// Session interface
+export interface Session {
+  userId: string;
+  email: string;
+  name: string;
+}
+
 // API response types
 export interface CosmicResponse<T> {
   objects: T[];
