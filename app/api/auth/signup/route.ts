@@ -66,9 +66,10 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     )
   } catch (error) {
-    console.error('Signup error:', error)
+    // Changed: Added more detailed error logging
+    console.error('Signup error details:', error)
     return NextResponse.json(
-      { error: 'Failed to create account' },
+      { error: 'Failed to create account. Please try again.' },
       { status: 500 }
     )
   }

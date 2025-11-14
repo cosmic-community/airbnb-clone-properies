@@ -173,19 +173,41 @@ export async function createUser(data: {
   password_hash: string;
 }): Promise<User> {
   try {
+    // Changed: Using metafields array structure required by Cosmic API
     const response = await cosmic.objects.insertOne({
       title: data.name,
       type: 'users',
-      metadata: {
-        name: data.name,
-        email: data.email,
-        password_hash: data.password_hash,
-        created_at: new Date().toISOString()
-      }
+      metafields: [
+        {
+          title: 'Name',
+          key: 'name',
+          type: 'text',
+          value: data.name
+        },
+        {
+          title: 'Email',
+          key: 'email',
+          type: 'text',
+          value: data.email
+        },
+        {
+          title: 'Password Hash',
+          key: 'password_hash',
+          type: 'text',
+          value: data.password_hash
+        },
+        {
+          title: 'Created At',
+          key: 'created_at',
+          type: 'text',
+          value: new Date().toISOString()
+        }
+      ]
     });
     
     return response.object as User;
   } catch (error) {
+    console.error('Error creating user:', error);
     throw new Error('Failed to create user');
   }
 }
