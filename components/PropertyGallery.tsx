@@ -23,7 +23,7 @@ export default function PropertyGallery({ photos, title }: PropertyGalleryProps)
     <div className="space-y-4">
       <div className="aspect-[16/9] rounded-lg overflow-hidden">
         <img
-          src={`${photos[selectedPhoto].imgix_url}?w=1600&h=900&fit=crop&auto=format,compress`}
+          src={`${photos[selectedPhoto]?.imgix_url}?w=1600&h=900&fit=crop&auto=format,compress`}
           alt={`${title} - Photo ${selectedPhoto + 1}`}
           className="w-full h-full object-cover"
           width={800}
