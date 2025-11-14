@@ -173,7 +173,10 @@ export async function createUser(data: {
   password_hash: string;
 }): Promise<User> {
   try {
-    // Changed: Using metadata object instead of metafields array for Cosmic API v1.5+
+    // Changed: Convert date to YYYY-MM-DD format for Cosmic date metafield
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0]; // Gets YYYY-MM-DD
+    
     const response = await cosmic.objects.insertOne({
       title: data.name,
       type: 'users',
@@ -181,7 +184,7 @@ export async function createUser(data: {
         name: data.name,
         email: data.email,
         password_hash: data.password_hash,
-        created_at: new Date().toISOString()
+        created_at: formattedDate // Changed: Use YYYY-MM-DD format instead of ISO timestamp
       }
     });
     
