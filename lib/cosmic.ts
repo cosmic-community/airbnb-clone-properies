@@ -173,12 +173,9 @@ export async function createUser(data: {
   password_hash: string;
 }): Promise<User> {
   try {
-    // Changed: Convert date to YYYY-MM-DD format for Cosmic date metafield
+    // Changed: Create date in YYYY-MM-DD format for Cosmic date metafield
     const today = new Date();
-    const year = today.getFullYear();
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const day = String(today.getDate()).padStart(2, '0');
-    const formattedDate = `${year}-${month}-${day}`; // Ensures YYYY-MM-DD format
+    const formattedDate = today.toISOString().split('T')[0]; // This ensures YYYY-MM-DD format
     
     const response = await cosmic.objects.insertOne({
       title: data.name,
@@ -187,7 +184,7 @@ export async function createUser(data: {
         name: data.name,
         email: data.email,
         password_hash: data.password_hash,
-        created_at: formattedDate // Changed: Use explicit YYYY-MM-DD format
+        created_at: formattedDate // Changed: Use ISO date format split to get YYYY-MM-DD
       }
     });
     
