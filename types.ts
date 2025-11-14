@@ -31,6 +31,7 @@ export interface Host extends CosmicObject {
 // Listing interface
 export interface Listing extends CosmicObject {
   type: 'listings';
+  thumbnail?: string; // Added: Cosmic objects include thumbnail at root level
   metadata: {
     title: string;
     description: string;
