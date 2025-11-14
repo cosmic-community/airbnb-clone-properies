@@ -8,6 +8,7 @@ export interface CosmicObject {
   type: string;
   created_at: string;
   modified_at: string;
+  thumbnail?: string; // Changed: Added thumbnail property to base interface
 }
 
 // Property type literal
