@@ -17,19 +17,19 @@ export default function Header() {
               href="/" 
               className="text-gray-700 hover:text-gray-900 transition-colors"
             >
-              Home
+              Explore
             </Link>
             <Link 
-              href="/listings" 
+              href="/#listings" 
               className="text-gray-700 hover:text-gray-900 transition-colors"
             >
               Listings
             </Link>
             <Link 
-              href="/hosts" 
+              href="/contact" 
               className="text-gray-700 hover:text-gray-900 transition-colors"
             >
-              Hosts
+              Contact
             </Link>
             <button className="bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors">
               Become a Host

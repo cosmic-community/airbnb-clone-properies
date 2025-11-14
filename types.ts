@@ -70,3 +70,16 @@ export interface CosmicResponse<T> {
   objects: T[];
   total: number;
 }
+
+// Contact form types
+export interface ContactFormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+export interface ContactFormResponse {
+  success?: boolean;
+  error?: string;
+  data?: any;
+}
