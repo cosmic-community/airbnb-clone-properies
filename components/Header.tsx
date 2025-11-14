@@ -26,10 +26,10 @@ export default function Header() {
               Listings
             </Link>
             <Link 
-              href="/contact" 
+              href="/reviews" 
               className="text-gray-700 hover:text-gray-900 transition-colors"
             >
-              Contact
+              Reviews
             </Link>
             <button className="bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors">
               Become a Host

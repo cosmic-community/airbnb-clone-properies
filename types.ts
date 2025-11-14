@@ -8,6 +8,7 @@ export interface CosmicObject {
   type: string;
   created_at: string;
   modified_at: string;
+  thumbnail?: string; // Changed: Added thumbnail property to base interface
 }
 
 // Property type literal
@@ -69,17 +70,4 @@ export interface Review extends CosmicObject {
 export interface CosmicResponse<T> {
   objects: T[];
   total: number;
-}
-
-// Contact form types
-export interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
-}
-
-export interface ContactFormResponse {
-  success?: boolean;
-  error?: string;
-  data?: any;
 }
